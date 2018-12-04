@@ -27,14 +27,14 @@ public class MenuAdapter extends ArrayAdapter<MenuItem> {
         }
 
         // Get and set textViews and imageViews from item
-        TextView name = convertView.findViewById(R.id.name);
-        ImageView image = convertView.findViewById(R.id.imageView);
-        TextView price = convertView.findViewById(R.id.price);
+        TextView nameText = convertView.findViewById(R.id.name);
+        ImageView imageView = convertView.findViewById(R.id.imageView);
+        TextView priceText = convertView.findViewById(R.id.price);
         MenuItem item = getItem(position);
-        String priceString = String.valueOf("$ " + item.getPrice());
-        name.setText(item.getName());
-        price.setText(priceString);
-        Picasso.with(getContext()).load(item.getImageUrl()).into(image);
+        //String priceString = String.valueOf("$ " + item.getPrice());
+        nameText.setText(item.getName());
+        priceText.setText("$ " +String.valueOf(item.getPrice()));
+        Picasso.with(getContext()).load(item.getImageUrl()).into(imageView);
 
         return convertView;
     }

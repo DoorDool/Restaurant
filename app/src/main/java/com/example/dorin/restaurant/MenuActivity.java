@@ -47,9 +47,9 @@ public class MenuActivity extends AppCompatActivity implements  MenuItemsRequest
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             // Get menu item and save them in intent
-            MenuItem menuItem = (MenuItem) parent.getItemAtPosition(position);
+            MenuItem item = (MenuItem) parent.getItemAtPosition(position);
             Intent intent = new Intent(MenuActivity.this, MenuItemActivity.class);
-            intent.putExtra("menu_item", menuItem);
+            intent.putExtra("item", item);
             startActivity(intent);
         }
     }
