@@ -19,16 +19,14 @@ public class MenuItemActivity extends AppCompatActivity {
         Intent intent = getIntent();
         MenuItem item = (MenuItem) intent.getSerializableExtra("item");
 
-        // Initialize all views
+        // Initialize all views and fill
         TextView nameText = findViewById(R.id.name);
-        ImageView imageView = findViewById(R.id.imageView);
-        TextView descriptionText = findViewById(R.id.description);
-        TextView priceText = findViewById(R.id.price);
-
-        // Fill in all the views
         nameText.setText(item.getName());
+        ImageView imageView = findViewById(R.id.imageView);
         Picasso.with(this).load(item.getImageUrl()).into(imageView);
+        TextView descriptionText = findViewById(R.id.description);
         descriptionText.setText(item.getDescription());
+        TextView priceText = findViewById(R.id.price);
         priceText.setText("$ " + String.valueOf(item.getPrice()));
     }
 }

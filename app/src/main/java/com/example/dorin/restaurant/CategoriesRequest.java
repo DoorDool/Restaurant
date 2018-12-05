@@ -33,7 +33,7 @@ public class CategoriesRequest implements Response.Listener<JSONObject>, Respons
     public void onResponse(JSONObject response) {
         try {
             arrayList = new ArrayList<>();
-            // Get categories from the inputted JSONObject
+            // Get categories from the JSONObject
             JSONArray categories = response.getJSONArray("categories");
 
             // Store it in an arrayList
@@ -44,7 +44,7 @@ public class CategoriesRequest implements Response.Listener<JSONObject>, Respons
             // set arrayList in activity
             activity.gotCategories(arrayList);
         }
-        // Catch errors and give message to user.
+        // Catch errors and give message to user
         catch (Exception e) {
             e.printStackTrace();
             String warningMessage =  e.getMessage();
@@ -64,6 +64,7 @@ public class CategoriesRequest implements Response.Listener<JSONObject>, Respons
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = "https://resto.mprog.nl/";
         try {
+            // make new jsonObjectRequest with url category
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url +
                     "categories", null, this, this);
             queue.add(jsonObjectRequest);

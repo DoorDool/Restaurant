@@ -31,7 +31,7 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesR
     public void gotCategories(ArrayList<String> categories) {
         list = findViewById(R.id.listview);
 
-        // Init the adapter for categories
+        // New adapter for categories
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.categorie_item, categories);
         list.setAdapter(arrayAdapter);
     }

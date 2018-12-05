@@ -61,11 +61,12 @@ public class MenuItemsRequest implements Response.Listener<JSONObject>, Response
         activity.gotMenuError(error.getMessage());
     }
 
-    // Make a request to get the menu for inputted category
+    // Get the menu for category
     public void getMenu(Callback activity, String category) {
         this.activity = activity;
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = "https://resto.mprog.nl/";
+        // get menu from url with category = inputted category
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url +
                 "menu?category=" + category, null, this, this);
         queue.add(jsonObjectRequest);

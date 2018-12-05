@@ -18,10 +18,13 @@ public class MenuActivity extends AppCompatActivity implements  MenuItemsRequest
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_activity);
 
+        // get category from intent
         Intent intent = getIntent();
         String category = intent.getStringExtra("category");
 
+        // make new menuItemsRequest
         MenuItemsRequest menuItemsRequest = new MenuItemsRequest(this);
+        // get menu of a category
         menuItemsRequest.getMenu(this, category);
 
         list = findViewById(R.id.listView);
@@ -34,6 +37,7 @@ public class MenuActivity extends AppCompatActivity implements  MenuItemsRequest
     public void gotMenu(ArrayList<MenuItem> menuItems) {
         list = findViewById(R.id.listView);
         MenuAdapter adapter = new MenuAdapter(this, menuItems);
+        // set adapter in list
         list.setAdapter(adapter);
     }
 
